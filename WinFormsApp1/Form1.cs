@@ -46,7 +46,12 @@ namespace WinFormsApp1
             pr = ((double)s / array.Length);
             pr = pr * 100;
 
-            MessageBox.Show($"{pr}");
+            MessageBox.Show($"{pr} % процентов");
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
