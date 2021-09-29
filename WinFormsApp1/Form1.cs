@@ -17,5 +17,36 @@ namespace WinFormsApp1
             InitializeComponent();
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string text = textBox1.Text;
+            char[] array = text.ToCharArray();
+            int s = 0;
+            double pr;
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (Char.IsLetter(array[i]))
+                {
+                    ++s;
+                }
+
+            }
+            pr = ((double)s / array.Length);
+            pr = pr * 100;
+
+            MessageBox.Show($"{pr}");
+        }
     }
 }
