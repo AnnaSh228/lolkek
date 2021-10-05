@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace WinFormsApp1
 {
@@ -58,6 +59,19 @@ namespace WinFormsApp1
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Текстовый документ (*.txt)|*.txt|Все файлы (*.*)|*.*";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                StreamWriter streamWriter = new StreamWriter(saveFileDialog.FileName);
+                streamWriter.WriteLine(textBox1.Text);
+                streamWriter.Close();
+            }
         }
     }
 }
