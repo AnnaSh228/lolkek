@@ -31,22 +31,28 @@ namespace WinFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             string text = textBox1.Text;
             char[] array = text.ToCharArray();
             int s = 0;
             double pr;
-            for (int i = 0; i < array.Length; i++)
-            {
-                if (Char.IsLetter(array[i]))
+            if (textBox1.Text != "" )
                 {
-                    ++s;
+                for (int i = 0; i < array.Length; i++)
+                {
+                    if (Char.IsLetter(array[i]))
+                    {
+                        ++s;
+                    }
+
                 }
+                pr = ((double)s / array.Length);
+                pr = pr * 100;
 
+                MessageBox.Show($"{pr} % процентов"); 
             }
-            pr = ((double)s / array.Length);
-            pr = pr * 100;
-
-            MessageBox.Show($"{pr} % процентов");
+            else { MessageBox.Show($"Строка пуста!!!!!");
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
