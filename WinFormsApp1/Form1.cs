@@ -73,5 +73,11 @@ namespace WinFormsApp1
                 streamWriter.Close();
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = File.ReadAllText("E:\\text.txt");
+
+        }
     }
 }
