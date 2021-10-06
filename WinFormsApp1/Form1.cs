@@ -30,28 +30,17 @@ namespace WinFormsApp1
 
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
-
-            string text = textBox1.Text;
-            char[] array = text.ToCharArray();
-            int s = 0;
-            double pr;
-            if (textBox1.Text != "" )
-                {
-                for (int i = 0; i < array.Length; i++)
-                {
-                    if (Char.IsLetter(array[i]))
-                    {
-                        ++s;
-                    }
-
-                }
-                pr = ((double)s / array.Length);
-                pr = pr * 100;
-
-                MessageBox.Show($"{pr} % процентов"); 
+            
+           
+            if (textBox1.Text != "")
+            {
+                var p=Logic.Calc(textBox1.Text);
+                MessageBox.Show($"{p} % процентов");
             }
+                
             else { MessageBox.Show($"Строка пуста!!!!!");
             }
         }
@@ -76,8 +65,36 @@ namespace WinFormsApp1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            textBox1.Text = File.ReadAllText("E:\\text.txt");
+            textBox1.Text = File.ReadAllText("text.txt");
 
         }
     }
+
+    public class Logic
+    {
+        public static double Calc(string text)
+        {
+            
+            string str1 = text.Replace(" ", string.Empty);
+            char[] array = str1.ToCharArray();
+            int s = 0;
+            double pr;
+
+            for (int i = 0; i < array.Length; i++)
+            {
+
+                if (Char.IsLetter(array[i]))
+                {
+                    ++s;
+                }
+
+            }
+            pr = ((double)s / array.Length);
+            pr = pr * 100;
+
+            return pr;
+        }
+    }
+
+
 }
